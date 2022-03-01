@@ -1,0 +1,23 @@
+#Christopher Chen
+#Perl Quiz - Question 1: Find and Print all words in 'english.sorted' that contain only lowercase letters
+
+
+my @lowerCase = (); 
+my $numOfLowercase = 0;
+
+while(<STDIN>) {
+    chomp($_);
+
+    if ($_ =~ /^[\p{Lowercase}]+$/) {
+        push @lowerCase, $_;
+        $numOfLowercase++
+    }
+     
+}
+
+for( $i = 1; $i <= $#lowerCase; $i++ )
+{
+    print $lowerCase[$i], "\n";
+}
+
+print $numOfLowercase;

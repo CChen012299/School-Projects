@@ -1,0 +1,59 @@
+#Christopher Chen
+#Exercise 5 - Process roster using subroutines and command line arguments
+
+sub help {
+
+    $message = "
+    Usage: perl -w perplex.pl <option> rosterfile
+    
+        where <option> is one of the following:
+        
+            -help: display this help
+            -first: sort by first name
+            -last: sort by last name
+            -id: sort by id
+        ";
+
+    print $message;
+}
+
+sub addStudent {
+
+    my $sortby = $_[0];
+
+    if($sortby =~ /-f/) {
+        $studentdef = "$_[1] $_[2] $_[3]";
+    }
+
+    elsif ($sortby =~ /-l/) {
+        $studentdef = "$_[2] $_[1] $_[3]";
+    }
+
+    else {
+        $studentdef = "$_[3] $_[1] $_[2]";
+    }
+
+    push @roster, $studentdef;
+}
+
+$numargs = $#ARGV +1;
+
+if ($numargs < 2 || $ARGV[0] =~ /-h/) {
+
+    help();
+    exit(1);
+
+}
+
+my $sortby = shift @ARGV;
+
+while ($studentline = <>) {
+    chomp($studentline);
+    ($last, $first, $email) = split /\s*,\s*/, $studentline;
+    ($id) = $email =~ m/(s[0-9]{7})/;
+    addStudent($sortby, $first, $last, $id);
+}
+
+foreach $student (sort @roster) {
+    print "$student\n";
+}

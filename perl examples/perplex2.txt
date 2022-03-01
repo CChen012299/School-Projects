@@ -1,0 +1,12 @@
+#Christopher Chen
+#Exercise 2: Extract all the words from english.sorted that are 7 characters or less
+
+while(<STDIN>) { #read <STDIN> into the $_ default var
+    chomp($_);
+
+    if(length($_) <= 7 ) {
+        print $_, "\n";
+    }
+     
+     #perl -w perlex.pl < english.sorted > short.words, redirects the output of english.sorted to the file short.words
+}

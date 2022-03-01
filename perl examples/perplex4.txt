@@ -1,0 +1,26 @@
+#Christopher Chen
+#Exercise 4 - Read and process class roster, using a hash
+
+while ($studentline = <STDIN>) {
+    
+    chomp($studentline);
+
+    ($last, $first, $email) = split / *, */, $studentline;
+    
+
+    #$email =~ s/@monmouth.edu//;
+    #$id = $email;
+
+    #($id, $domain) = split /@/, $email;
+
+    $email =~ s/(s[0-9]{7}).*/$1/;
+    $id = $email;
+
+    $roster{$id} = "$last, $first";
+}
+
+
+
+foreach $id (sort keys %roster) {
+    print "$id, $roster{$id}\n";
+}

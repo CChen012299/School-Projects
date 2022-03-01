@@ -1,0 +1,131 @@
+Find CS-371: Scripting Languages
+Spring 2021
+Perl Quiz
+
+For Problems 1 and 2, dropbox Perl programs with a .txt extension. For
+Problems 3 and 4, write the answers in this file (perlquiz_sp21.txt).
+
+Use ecampus to dropbox the required files by 11:59pm, Mon, Mar 1, 2021.
+
+*******************************************************************************
+
+Problem 1: (15 points)
+
+You should have a file called 'english.sorted' from previous Perl
+exercises. If not, get it from Piazza -> General Resources.
+
+Write and save the program 'perlquiz1.pl' to find and print all words in
+'english.sorted' that contain only lowercase letters. You must use
+regular expression matching and no more than one 'if' structure.
+
+Dropbox perlquiz1.pl as perlquiz1.pl.txt.
+
+Hints: 
+
+- There are 106,890 such words in english.sorted.
+- See perlex2.pl (regular expression match version, Feb 12 class).
+
+*******************************************************************************
+
+Problem 2: (15 points)
+
+Download roster2.txt from Piazza -> General Resources.
+
+Write a program 'perlquiz2.pl' that does the same thing as Perl exercise 4
+but with the contents of roster2.txt. The program must discard any middle
+initials. You must not make any modifications to roster2.txt.
+
+Dropbox perlquiz2.pl as perlquiz2.pl.txt.
+
+Hints: 
+
+- See perlex4.pl (Feb 16 class).
+
+*******************************************************************************
+
+Problem 3: (16 points)
+
+For the following, write one value for the variable on the left that will
+result in a successful regular expression match:
+
+a) $country =~ m/.*nd$/
+
+      I.e., if $country is ________________, this regular expression
+      match would return true.
+   
+   $country = And
+
+
+b) $poss =~ m/'s$/
+
+   $poss = Tommy's
+
+
+c) $var1 =~ m/[AaEeIiOoUu]{2}[^AaEeIiOoUu]{2}/
+
+   $var1 = Aapplee
+
+
+d) $var2 =~ m/^#[^#]/
+
+   $var2 = #1
+
+
+e) $hecks =~ m/[A-F0-9][A-F0-9][A-F0-9]+/
+
+   $hecks = A1B2C3
+
+
+f) $pw =~ m/[^A-Za-z][0-9]+[A-Z][!?+=]*[a-z]+/
+
+   $pw = 11A!a
+
+
+g) $someone =~ m/^Bu(bb|dd)(a|y)$/
+ 
+   $someone = Bubba
+
+
+h) $animal =~ m/^\w{6}$/             (\w is any word character.)
+
+   $animal = Bobcat
+
+
+*******************************************************************************
+
+Problem 4: (12 points)
+
+See the following Perl code and insert your answers below.
+A beginning Perl programmer wrote the following program:
+
+
+         $verylongvarname = 10;
+
+         # increment $verylongvarname by 1:
+         $verylongvarnaem = $verylongvarname + 1;
+
+         # print incremented $verylongvarname:
+         print "\$verylongvarname:  $verylongvarname";
+
+
+a) Yes, there is an error in the above program. What was the intended
+   output? What was the actual output? (Assume the program is run with
+   the command 'perl progname.pl'.)
+
+   intended output:
+	$verylongname: 11
+   actual output:
+	$verylongname: 10
+
+
+b) Add the "use strict;" pragma to the above program and run it. How
+   would "use strict;" help debug this program?
+
+	The "use strict" pragma would help debug tge program since it provides errors for all variables that are not declared.
+
+c) How would the use of the "-w" (warnings) flag help debug this program?
+   (i.e. perl -w programname.pl)
+
+	The "-w" flag shows the mispelled variable as being only used once and provides that it might be a typo.
+
+

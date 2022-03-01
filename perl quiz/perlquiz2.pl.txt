@@ -1,0 +1,22 @@
+#Christopher Chen
+#Perl Quiz - Question 2: Repeat Perl Exercise 4, but remove the middle initial
+
+while ($studentline = <STDIN>) {
+    
+    chomp($studentline);
+
+    $studentline =~ s/\w\. *//g;
+
+    ($last, $first, $email) = split /[ *, *,\s\/]+/, $studentline;
+
+    $email =~ s/(s[0-9]{7}).*/$1/;
+    $id = $email;
+
+    $roster{$id} = "$last, $first";
+}
+
+
+
+foreach $id (sort keys %roster) {
+    print "$id, $roster{$id}\n";
+}

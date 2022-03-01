@@ -1,0 +1,17 @@
+#Christopher Chen
+#Excercise 3: Sort Roster - Read an array, and swap the order of the last and first name, sort the roster by first letter of the first name and print the array
+
+while ($studentline = <STDIN>) {
+    ($last, $first, $email) = split /, /, $studentline;
+
+    chomp($email);
+
+    $student = "$first $last $email";
+
+    #print $student, "\n";
+    push @roster, $student; # Adds student to roster array
+}
+
+foreach $student ( sort @roster ) {
+    print $student, "\n";
+}

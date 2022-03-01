@@ -1,0 +1,23 @@
+#Christopher Chen
+#Exercise 7 - Parse data from html
+
+use LWP::Simple;
+
+$url = "https://www.monmouth.edu/department-of-csse/news-events/";
+$news = get($url);
+
+@headlines = $news =~ m/<p><strong>(.+)<\/strong><\/p>/g;
+
+foreach my $hl (@headlines) {
+    print $hl, "\n";
+}
+
+print "Headlines: ", ($#headlines + 1), "\n";
+
+@anames = $news =~ m/<a class="anchorMargin" name="(.+)">/g;
+
+foreach $an (@anames) {
+    print $an, "\n";
+}
+
+print "Anchor names: ", ($#anames + 1), "\n";

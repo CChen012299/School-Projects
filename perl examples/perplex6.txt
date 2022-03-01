@@ -1,0 +1,12 @@
+#Christopher Chen
+#Exercise 6 - Read an entire file into a variable
+
+open FILE, "<roster.txt";
+$roster = do { local $/; <FILE> };
+
+#print $roster;
+
+@ids = $roster =~ m/s[0-9]{7}/g;
+
+
+print "@ids\n";
